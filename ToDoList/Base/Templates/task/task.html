@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<title>User tasks</title>
+{% endblock %}
+
+{% block content %}
+<div class="title-container">
+    {% if user.is_authenticated %}
+    <p class='welcome'>Welcome, {{request.user.username}}</p>
+    {% endif %}
+    <h3>This is your list of tasks</h3>
+    {% if user_tasks %}
+        <form action="{% url "search" %}" method='POST'>{% csrf_token %}
+            <input type="text" placeholder='Search...' name='search'>
+            <button type="submit">Search</button>
+            <a href="{% url 'base' %}" class='btn btn-clear'>Clear search</a>
+        </form>
+        <div class='add-task'>
+            <a href="{% url 'new_task' %}" class='btn btn-add'>Add task</a>
+        </div>
+    {% endif %}
+</div>
+<div class='task-container'>
+    <ul class='task-list'>
+    {% if user_tasks %}
+        {% for task in user_tasks %}
+        
+            <li class='task'>
+                {% if task.completed %}
+                    <div class="completed-yes"></div>
+                    <p class='task-title end'>{{task.task_title}}</p>
+                {% else %}
+                    <div class="completed-no"></div>
+                    <p class='task-title'>{{task.task_title}}</p>
+                {% endif %}
+                
+                <div class='task-btn'>
+                    <a href="{% url 'edit_task' task.id %}" class='btn btn-edit'>Edit task</a>
+                    <a href="{% url 'remove_task' task.id %}" class='btn btn-remove'>Remove task</a>
+                </div>
+            </li>
+        
+        {% endfor %}
+    {% else %}
+    <div class='no-task'>
+        <p>Create your first task:</p> <a href="{% url 'new_task' %}" class='btn btn-add'>Add task</a> 
+    </div>
+    {% endif %}
+    </ul> 
+</div>
+    
+{% endblock %}

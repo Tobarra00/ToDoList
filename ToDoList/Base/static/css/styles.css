@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
+
+body{
+    background-color: #EF9595;
+    margin: 0;
+    padding: 0;
+    font-family: 'Heebo', sans-serif; 
+}
+
+.header{
+    background-color: #111111;
+    height: 5rem;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    top: 0;
+}
+
+.header h1 {
+    color: white; 
+    position: absolute;
+    left: 25%;
+}
+
+.nav{
+    margin-left: 60%;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.nav-menu-item{
+    font-size: 16px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+}
+
+.nav-menu-link{
+    transition: background-color 0.5s ease;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+.nav-menu-link:hover{
+    background-color: #2f2f31;    
+}
+
+.container {
+   margin: 9% auto;
+   max-width: 1000px;
+   background-color: #e9d0d0; 
+   border: 1px solid #2f2f2f;
+   box-shadow: 0 0 5px #2f3f3f;
+}
+
+.title-container {
+    background-color: #fdc1c1;
+    border-bottom: 3px solid #2f2f2f;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 0.49fr;
+    align-items: center;
+    padding: 10px;
+}
+
+h3 {    
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    text-align: center;
+    margin: 0.5em 0;
+    font-size: 35px;
+}
+
+.welcome{
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    text-align: end;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.title-container > form {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 23px;
+    margin-bottom: 15px;
+}
+
+.add-task {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+.task-container {
+    text-align: center;
+    max-height: 410px;
+    overflow: auto;
+}
+
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.helptext {
+    display: block;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.row-label {
+    width: auto;
+    text-align: end;
+    padding-right: 10px;
+}
+
+#id_username, #id_password, #id_password1, #id_password2 {
+    width: 100%;
+}
+
+button[type='submit'] {
+    width: 90px;
+    height: 30px;
+    margin: 10px;
+}
+
+.errorlist {
+    text-align: left;
+}
+
+.register-login {
+    text-decoration: none;
+}
+
+.register-login:hover {
+    text-shadow: 0 0 3px #aaa;
+    color: rgb(36, 97, 122);
+    transition: 0.3s;
+}
+
+.task-list {
+    margin: 0;
+    padding: 0;
+}
+
+.no-task {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-task p{
+    margin-right: 10px;
+}
+
+.task {
+    list-style-type: none;
+    border-bottom: 1px solid #111111;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto 4fr 2fr;
+}
+
+.task:nth-child(odd) {
+    background-color: #b6a1a18c;
+}
+
+.task:hover {
+    background-color: #2e292993;
+    color: white;
+}
+
+.completed-yes {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: green;
+    margin: 1.1em;
+}
+
+.end {
+    text-decoration: line-through;
+}
+
+.completed-no {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(66, 70, 66);
+    margin: 1.1em;
+}
+
+
+.task-title {
+    text-align: left;
+    font-size: 22px;
+    margin: 5px 20px;
+    display: inline-block;
+}
+
+.task-btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 30px;
+}
+
+.btn {
+    border-radius: 1em;
+    border: 1px solid black;
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.btn:hover, .btn:focus {
+    box-shadow: 0 0 5px black;
+}
+
+.btn-add {
+    margin-right: 25px;
+    color: rgb(255, 255, 255);
+    background-color: #272727;
+}
+
+.btn-clear {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.692);
+}
+
+.btn-edit {
+    color: white;
+    background-color: rgba(43, 165, 43, 0.8);
+}
+
+.btn-remove {
+    color: rgb(243, 236, 236);
+    background-color: rgba(196, 34, 34, 0.8);
+}
+
+.btn-back {
+    color: white;
+    background-color: grey;
+}
+
+.back {
+    width: auto;
+    margin: 20px 0;
+}

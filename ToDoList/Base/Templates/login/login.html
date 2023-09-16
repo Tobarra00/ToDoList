@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<title>User Log in</title>
+{% endblock %}
+
+{% block content %}
+<div class='title-container'>
+    {% if user.is_authenticated %}
+    <p class='welcome'>Welcome, {{request.user.username}}</p>
+    {% else %}
+    <p class='welcome'>Please log in to see your tasks.</p>
+    {% endif %}
+    <h3>Welcome to my <strong>To Do List</strong></h3>
+</div>
+<div class="task-container">
+    <p>Please log in with your username and password:</p>
+        <form action="" method="post" class='form'>{% csrf_token %}
+            <table>
+                <tr>
+                    <td class='row-label'>{{form.username.label_tag}}</td>
+                    <td>{{form.username}}</td>
+                </tr>
+                <tr>
+                    <td class='row-label'>{{form.password.label_tag}}</td>
+                    <td>{{form.password}}</td>
+                </tr>
+            </table>
+            {% if messages %}
+            <ul class="errorlist">
+                {% for error in messages %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <p>You don't have an account? <a href="{% url "register" %}" class='register-login'>Register</a></p>
+</div>
+{% endblock %}
+
