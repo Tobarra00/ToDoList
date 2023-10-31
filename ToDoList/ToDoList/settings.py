@@ -63,7 +63,7 @@ ROOT_URLCONF = 'ToDoList.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.getenv('TEMPLATES_DIRS')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,9 +83,7 @@ WSGI_APPLICATION = 'ToDoList.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        dj_database_url.parse(os.getenv('DATABASE_URL'))
-    }
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
 
