@@ -1,6 +1,8 @@
 __pycache__/
 venv/
+staticfiles_build/
 
 .env
+
 
 db.sqlite3
